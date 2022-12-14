@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head.ejs') %>
+</head>
+<body onload="cargarClientes()" class="container">
+  
+<header>
+  <%- include('../partials/header.ejs') %>
+</header>
+
+<main>
+    <div class="card text-center">
+        <div class="card-header">
+          CLIENTES <span class="text-muted">(no era rooms? whatever es un ejemplo de crud)</span>
+        </div>
+        <div class="card-body">
+            <a href="#" class="btn btn-primary primary-color-background mb-3 float-right" data-bs-toggle="modal" data-bs-target="#clientCRUDModal"><i class="bi bi-person-fill-add pr-2"></i>Añadir Cliente</a>
+            
+            <table class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Nombre</td>
+                        <td>Apellidos</td>
+                        <td>Edad</td>
+                        <td>Email</td>
+                        <td>Editar</td>
+                        <td>Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody id="registrosCliente">
+
+                </tbody>
+
+              </table>
+        
+        </div>
+        <div class="card-footer text-muted">
+          Clientes si señor.
+        </div>
+      </div>
+
+<!-- Modal -->
+<div class="modal fade" id="clientCRUDModal" tabindex="-1" aria-labelledby="clientCRUDLabel" aria-hidden="true">
+  <div class="modal-dialog modal-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="clientCRUDLabel">Añadir Cliente</h1>
+        <button type="button" class="btn-close modal-x-close" data-bs-dismiss="modal" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+        </svg></button>
+      </div>
+      <div class="modal-body">
+        <form id="formCRUDCliente">
+          <div class="form-floating mb-3">
+            <label for="crudNombre">Nombre</label>
+            <input type="text" class="form-control rounded-3" id="crudNombre" placeholder="Nombre">
+          </div>
+          <div class="form-floating mb-3">
+            <label for="CrudApellido">Apellido</label>
+            <input type="text" class="form-control rounded-3" id="CrudApellido" placeholder="Apellidos">
+          </div>
+          <div class="modal-gc-20-auto">
+            <div class="form-floating mb-3">
+              <label for="CrudEdad">Edad</label>
+              <input type="numeric" class="form-control rounded-3" id="CrudEdad" placeholder="18">
+            </div>
+            <div class="form-floating mb-3">
+              <label for="CrudEmail">Email</label>
+              <input type="email" class="form-control rounded-3" id="CrudEmail" placeholder="Email">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="closeCRUDClient"class="btn btn-secondary " data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary primary-color-background" onclick="crudCliente()">Añadir Cliente</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <%- include('../partials/footer.ejs') %>
+</footer>
+<script src="/js/rooms.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
