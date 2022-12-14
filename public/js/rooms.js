@@ -52,9 +52,30 @@ const crudCliente = async()=>{
     }
 }
 
+const editcrudCliente = (row,nombre,apellidos,edad,email) =>{
+    
+    document.querySelector("#editcrudNombre").value=nombre;
+    document.querySelector("#editCrudApellido").value=apellidos;
+    document.querySelector("#editCrudEdad").value=edad;
+    document.querySelector("#editCrudEmail").value=email;
+    
+    document.querySelector("#openeditclientCRUDModal").click();
+}
+
+const editarCliente = async (row,nombre,apellidos,edad,email) =>{
+    console.log("Editar registro "+row);
+    editcrudCliente(row,nombre,apellidos,edad,email);
+    //TO-DO
+}
+
+const eliminarCliente = async (row) =>{
+    console.log("Eliminar registro "+row)
+    //TO-DO
+}
+
 const cargarClientes = async () =>{
     //datos mockeados
-    let respuesta =  {data:[["1","Antonio","Moreno","41","correofalso@fakemail.com"],["2","Fernando","Hergueta","12","ilovefrancia@fakemail.com"],["3","Maria","Mosca","22","inotlovefrancia@fakemail.com"]]};
+    let respuesta =  {data:[["1","Antonio","Moreno","41","correofalso@fakemail.com"],["2","Fernando","Hergueta","12","ilovefrancia@fakemail.com"],["3","Maria","Mosca","22","inotlovefrancia@fakemail.com"],["4","Maria","Mosca","22","inotlovefrancia@fakemail.com"]]};
     //let resultado = await respuesta.json();
     let registroHTML = ``;
 
@@ -66,10 +87,9 @@ const cargarClientes = async () =>{
             <td>${row[2]}</td>
             <td>${row[3]}</td>
             <td>${row[4]}</td>
-            <td><button class="btn primary-color-background" onclick="editarCliente(${row[0]})"><i class="bi bi-pencil-square pr-1"></i>Editar</button></td>
-            <td><button class="btn btn-danger" onclick="eliminarCliente(${row[0]})"><i class="bi bi-trash3 pr-1"></i>Eliminar</button></td>
+            <td><button class="btn primary-color-background" onclick="editarCliente(${row[0]},'${row[1]}','${row[2]}','${row[3]}','${row[4]}')"><i class="bi bi-pencil-square pr-1"></i>Editar</button></td>
+             <td><button class="btn btn-danger" onclick="eliminarCliente(${row[0]})"><i class="bi bi-trash3 pr-1"></i>Eliminar</button></td>
         </tr>`});
-    console.log(registroHTML);
-
+                  
     document.querySelector("#registrosCliente").innerHTML=registroHTML;
 }

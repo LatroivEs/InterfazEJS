@@ -28,3 +28,7 @@
     height: 90vh;
     align-items: center;
 }
+
+.disappear{
+   visibility: hidden;
+}
