@@ -32,3 +32,21 @@
 .disappear{
    visibility: hidden;
 }
+.overflow-tr{
+    overflow-x: scroll;
+    width:100%;
+}
+
+@media only screen and (max-width: 990px) {
+    .overflow-tr{
+        overflow: scroll;
+    }
+  }
+
+@media only screen and (min-width: 991px) {
+
+.overflow-tr{
+    overflow: none;
+    overflow-x: none;
+}
+}  
