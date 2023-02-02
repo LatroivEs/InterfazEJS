@@ -1,0 +1,19 @@
+.purple{
+    background-color: purple;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.green{
+    background-color: green;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 50px 2fr 150px 1fr;
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+ }
